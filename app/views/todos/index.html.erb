@@ -1,13 +1,21 @@
 <h1>My TODO List</h1>
-<ul>
-	<% @todos.each do |todo| %>
-		<li>
-			<%= todo.task %>
-			<%= todo.due_date %>
-			<%= link_to 'Update', edit_todo_path(todo) %>
-			<%= link_to 'Finished', todo_path(todo), method: :delete  %>
-		</li>
+<table>
+	<thead>
+		<th>Task</th>
+		<th>Due date</th>
+		<th>Update?</th>
+		<th>Finish?</th>
+	</thead>
+	<tbody>
+		<% @todos.each do |todo| %>
+		<tr>
+			<td><%= todo.task %></td>
+			<td><%= todo.due_date %></td>
+			<td><%= link_to 'Update', edit_todo_path(todo) %></td>
+			<td><%= link_to 'Finished', todo_path(todo), method: :delete  %></td>
+		</tr>
 		<% end %>
-</ul>
+	</tbody>
+</table>
 
 <%= link_to 'New Task', new_todo_path %>
