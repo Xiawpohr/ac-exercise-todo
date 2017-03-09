@@ -4,7 +4,8 @@
 		<li>
 			<%= todo.task %>
 			<%= todo.due_date %>
-			<%= link_to 'Edit', edit_todo_path(todo) %>
+			<%= link_to 'Update', edit_todo_path(todo) %>
+			<%= link_to 'Finished', todo_path(todo), method: :delete  %>
 		</li>
 		<% end %>
 </ul>
